@@ -42,7 +42,7 @@ const Weather = () => {
                 <p className='font-bold text-4xl text-white'>{city?.name}</p>
             </div>
 
-            <div className='flex justify-center gap-16 w-full'>
+            <div className='flex justify-center gap-16 w-full md:gap-40'>
                 <div className='flex items-center gap-3.5'>
                     <img src="./humdity.png" alt="" className='w-12 md:w-20' />
                     <div className='md:text-2xl'>
