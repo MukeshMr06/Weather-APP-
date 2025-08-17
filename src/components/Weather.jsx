@@ -14,6 +14,7 @@ const Weather = () => {
     const getweather = async () => {
         let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=295d2cd8bff13d8f4bf461b2d3dd2fd4&units=metric`)
         let result = await response.json()
+        console.log(result)
         setCity(result)
         setSearch("")
     }
@@ -23,7 +24,7 @@ const Weather = () => {
     },[])
 
     return (
-        <div className='weather w-[450px] md:w-[700px] flex flex-col gap-10'>
+        <div className='weather w-[350px] md:w-[700px] flex flex-col gap-10'>
             <div className="searchbar gap-3 w-full">
                 <div className='flex justify-center gap-3'>
                     <input type="search" placeholder='Enter a city' value={search} onChange={(e) => setSearch(e.target.value)} className='rounded-2xl outline-none bg-white w-[400px] h-10 p-2' />
@@ -41,9 +42,9 @@ const Weather = () => {
                 <p className='font-bold text-4xl text-white'>{city?.name}</p>
             </div>
 
-            <div className='flex justify-between w-full'>
+            <div className='flex justify-center gap-16 w-full'>
                 <div className='flex items-center gap-3.5'>
-                    <img src="./humdity.png" alt="" className='w-16 md:w-20' />
+                    <img src="./humdity.png" alt="" className='w-12 md:w-20' />
                     <div className='md:text-2xl'>
                         <p>{city?.main?.humidity}%</p>
                         <span>Humidity</span>
@@ -51,7 +52,7 @@ const Weather = () => {
                 </div>
 
                 <div className='flex items-center gap-3.5'>
-                    <img src="wind.png" alt="" className='w-16 md:w-20' />
+                    <img src="wind.png" alt="" className='w-12 md:w-20' />
                     <div className='md:text-2xl'>
                         <p>{city?.wind?.speed}km/hr</p>
                         <span>Speed</span>
